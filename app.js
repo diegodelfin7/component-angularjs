@@ -8,6 +8,9 @@ angular.module('app').component('sendRecipientsComponent', {
   template: '<div> holaa {{ $ctrl | json }} </div>',
   bindings: {
     //resolve: '<',
+    resolve : '<',
+    close : '&',
+    dismiss : '&',
     codprod : '=',
     items : '=',
     fechini : '='
@@ -34,7 +37,14 @@ function InitCtrl($modal){
 	self.openModal = function() {
 		//var modalInstance = $uibModal.open({
 		var modalInstance = $modal.open({
+			component :'sendRecipientsComponent',
+			resolve : {
+				codprod : function() {
+					return "3323";
+				}
+			}
 			//component : 'sendRecipientsComponent', items="$ctrl.message"  fechIni="$ctrl.message"
+			/*
 			template : '<send-recipients-component codprod="$ctrl.codprod" items="$ctrl.message"  fechini="$ctrl.fechIniData"></send-recipients-component>',
 			controller : function(){
 				console.log('self',self);
@@ -42,8 +52,9 @@ function InitCtrl($modal){
 				this.fechIniData = self.fechIni;
 				this.message = self.peru;
 				console.log('this modal', this);
-			},
-			controllerAs : '$ctrl'
+			},*/
+
+			//controllerAs : '$ctrl'
 			
 			/*controller : function(){
 				vm.peru = 'hola'; 
